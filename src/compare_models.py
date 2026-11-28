@@ -1013,15 +1013,15 @@ def main() -> int:
                     fe = fe or PODSAI_MODEL_ID
                     kwargs['feature_extractor'] = fe
 
-                    # Apply the aggregation configuration for this variant.
-                    if variant_config is not None:
-                        if model_type == "orcahello":
-                            kwargs["config"] = variant_config
+                # Apply the aggregation configuration for this variant.
+                if variant_config is not None:
+                    if model_type == "orcahello":
+                        kwargs["config"] = variant_config
 
-                        elif model_type == "podsai":
-                            kwargs.update(variant_config)
+                    elif model_type == "podsai":
+                        kwargs.update(variant_config)
 
-                        print(f" Configuration: {variant_config}")
+                    print(f" Configuration: {variant_config}")
 
                 inference_model = get_model_inference(
                     model_type=inference_model_type,
